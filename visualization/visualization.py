@@ -30,7 +30,7 @@ with open('diagram.json') as json_file:
         # print(node)
         index = node["Index"]
         
-        label = index
+        label = " "
         if node["Ext"]["Count"] == 1:
             label = node["Ext"]["Names"][0]
         
