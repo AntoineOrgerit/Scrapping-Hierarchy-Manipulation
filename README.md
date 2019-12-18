@@ -32,3 +32,13 @@ Il suffit alors d'utiliser l'outil jusText pour lire le contenu des fichiers HTM
 
 Nous avons décider de séparer les deux étapes pour éviter d'avoir a récupérer les fichiers html plusieurs fois. 
 Cela permet de gagner en efficacité si des problèmes surviennent sur la partie jusText.
+
+# Dependances
+
+pip install BeautifulSoup
+pip install requests
+
+# Guide d'utilisation
+
+Prenez le temps de vous inscrire sur https://allgo.inria.fr/app/nero pour avoir un TOKEN que vous devez changer sur app.py
+
