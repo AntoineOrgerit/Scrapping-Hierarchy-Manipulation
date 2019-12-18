@@ -30,8 +30,9 @@ def second_request(id, filename):
 
 #Lecture des fichiers JT
 
-# JT = os.listdir("JT")
-JT = ["www.lefigaro.fr.txt", "voiture-a-hydrogene-un-record-de-distance-et-un-debut-de-filiere-industrielle_6020706_3234.html.txt", "you-and-mr-jones-le-groupe-de-brandtech-de-david-jones-devient-une-licorne-20191210.txt"] # à utiliser pendant les tests
+JT = os.listdir("JT")
+
+# JT = ["www.lefigaro.fr.txt", "voiture-a-hydrogene-un-record-de-distance-et-un-debut-de-filiere-industrielle_6020706_3234.html.txt", "you-and-mr-jones-le-groupe-de-brandtech-de-david-jones-devient-une-licorne-20191210.txt"] # à utiliser pendant les tests
 
 entitees = ["org", "time", "fonc", "pers"] # On définit nos entitées
 
@@ -52,13 +53,13 @@ def Indicateurs(attrX):
         i += 1
     return Inds
 
-for filename in JT:
+for filename in JT[0:100]:
     
     objet = [filename]
     myAttr = []
     
     id = first_request(filename)
-    time.sleep(5)
+    time.sleep(6)
     #Traitement avec NERO
     url = second_request(id, filename) # return url_nero
     data = requests.get(url)
@@ -73,7 +74,7 @@ for filename in JT:
                 myAttr.append(str(attr.name))
             
             if attr.get_text() not in myAttr:
-                myAttr.append(str(attr.get_text()))
+                myAttr.append(attr.get_text().encode("utf-8"))
     
     #Construction du JSON adapté à Lattice Editor
     
@@ -85,7 +86,7 @@ for filename in JT:
         firstObject["Params"] = { "AttrNames" : myAttr}
     else:
         #enrichissement du json
-        firstObject["ObjNames"].append(objet)
+        firstObject["ObjNames"].append(objet[0])
         #Ajout des attributs
         for attr2 in myAttr:
             if attr2 not in firstObject["Params"]["AttrNames"]:
@@ -102,5 +103,5 @@ secondObject["Count"] = Count
 jsonFile.append(secondObject)
 
 # print(jsonFile)
-with open("jsonResult.json", "w", encoding="UTF-8") as outfile:
+with open("jsonResult.json", "w") as outfile:
     json.dump(jsonFile, outfile)
