@@ -102,6 +102,5 @@ secondObject["Count"] = Count
 jsonFile.append(secondObject)
 
 # print(jsonFile)
-result = open("jsonResult.json", "w+", encoding="UTF-8")
-result.write(jsonFile)
-result.close()
+with open("jsonResult.json", "w", encoding="UTF-8") as outfile:
+    json.dump(jsonFile, outfile)
