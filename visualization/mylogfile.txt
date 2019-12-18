@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "D:\Documents\M2\Web3.0\projet\projetweb3\visualization\visualization.py", line 108, in <module>
+    dialog = MyHtmlFrame(None)
+TypeError: __init__() missing 1 required positional argument: 'title'
+Traceback (most recent call last):
+  File "D:\Documents\M2\Web3.0\projet\projetweb3\visualization\visualization.py", line 108, in <module>
+    dialog = MyHtmlFrame(None)
+TypeError: __init__() missing 1 required positional argument: 'title'
+Traceback (most recent call last):
+  File "D:\Documents\M2\Web3.0\projet\projetweb3\visualization\visualization.py", line 108, in <module>
+    dialog = MyHtmlFrame(None)
+TypeError: __init__() missing 1 required positional argument: 'title'
+Traceback (most recent call last):
+  File "D:\Documents\M2\Web3.0\projet\projetweb3\visualization\visualization.py", line 108, in <module>
+    dialog = MyHtmlFrame(None)
+TypeError: __init__() missing 1 required positional argument: 'title'
