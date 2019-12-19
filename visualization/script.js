@@ -12,7 +12,7 @@ function initializeUI() {
 	// initializing interaction menu
 	interactionsMenu = document.createElement("div");
 	interactionsMenu.style.border = "black 1px solid";
-	interactionsMenu.style.width = "150px";
+	interactionsMenu.style.width = "400px";
 	interactionsMenu.style.display = "inline-block";
 	interactionsMenu.style.marginLeft = "10px";
 	interactionsMenu.style.padding = "10px";
@@ -215,7 +215,9 @@ function updateConcepts(nodeId, shouldBeSuperconcepts) {
 	node.color = highlightColorsNode;
 	nodes.update(node);
 	// checking each edge of the node
-	edges.forEach(function(edge) {
+	var nodeEdges = network.body.nodes[nodeId].edges;
+	nodeEdges.forEach(function(nodeEdge) {
+		var edge = edges.get(nodeEdge.id);
 		// updating superconcepts or subconcepts
 		if (shouldBeSuperconcepts) {
 			if (edge.to == nodeId) {

@@ -5,7 +5,7 @@ Articles de presse
 
 ## 1. Scrapping
 
-### Installation
+### Dépendances
 
 Pour exécuter le script de scrapping il faut d'abord installer trois dépendances : 
 
@@ -53,4 +53,32 @@ hiérarchie des concepts.
 Pour réaliser l'extraction des entités utiliser la commande :
 ```shell script
 python app.py
+```
+
+## 2. Hierarchie des concepts
+
+À partir du fichier JSON généré, l'utilisation de LatViz (https://latviz.loria.fr/) permet de générer la hiérarchie des concepts (Ganter) et d'exporter cette dernière en tant que graphe au format JSON.
+
+## 3. Manipulation
+
+### Dépendances
+```shell script
+pip install pyvis
+```
+```shell script
+pip install networkx
+```
+
+```shell script
+pip install webbrowser
+```
+
+```shell script
+pip install bs4
+```
+
+### Exécution
+
+```shell script
+python visualization.py [input_filename]
 ```
