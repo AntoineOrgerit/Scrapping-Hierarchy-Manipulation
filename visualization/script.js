@@ -216,8 +216,8 @@ function updateConcepts(nodeId, shouldBeSuperconcepts) {
 	nodes.update(node);
 	// checking each edge of the node
 	var nodeEdges = network.body.nodes[nodeId].edges;
-	nodeEdges.forEach(function(nodeEdge) {
-		var edge = edges.get(nodeEdge.id);
+	while(nodeEdges.length != 0) {
+		var edge = edges.get(nodeEdges.pop().id);
 		// updating superconcepts or subconcepts
 		if (shouldBeSuperconcepts) {
 			if (edge.to == nodeId) {
@@ -232,7 +232,7 @@ function updateConcepts(nodeId, shouldBeSuperconcepts) {
 				updateConcepts(edge.to, shouldBeSuperconcepts);
 			}
 		}
-	});
+	}
 }
 
 /** ----- FCA HANDLING ----- */
