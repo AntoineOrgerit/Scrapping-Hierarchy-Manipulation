@@ -267,3 +267,4 @@ network.on("click", function(event) {
 
 initializeUI();
 colorAllDefault();
+network.fit();

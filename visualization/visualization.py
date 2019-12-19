@@ -23,7 +23,7 @@ def get_title_content(json_elem):
 
 
 def get_label(node_index, extent, nodes, edges):
-    """ Allows to generate a title content for a given node node_index based on its extent, FCA nodes and FCA edges.
+    """ Allows to generate a label content for a given node node_index based on its extent, FCA nodes and FCA edges.
     """
     label = ""
     for obj in extent:
@@ -38,6 +38,9 @@ def get_label(node_index, extent, nodes, edges):
                 label = label + ", " + obj
     if label == "":
         label = " "
+    else:
+        if len(label) > 150:
+            label = label[:150]
     return label
 
 
