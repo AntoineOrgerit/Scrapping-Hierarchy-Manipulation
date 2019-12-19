@@ -5,9 +5,9 @@ Articles de presse
 
 ## 1. Scrapping
 
-### Installation
+### Dépendances
 
-Pour exécuter le script de scrapping il faut d'abord installer deux dépendances : 
+Pour exécuter le script de scrapping il faut d'abord installer trois dépendances : 
 
 ```shell script
 pip install requests
@@ -17,7 +17,14 @@ pip install requests
 pip install justext
 ```
 
+```shell script
+pip install BeautifulSoup
+```
+
 Il faut obligatoirement créer deux dossier le premier nommé *html* et le second *JT*.
+
+Pour l'utilisation de NERO (https://allgo.inria.fr/app/nero) et donc par extension pour executer le script *app.py*,
+il est nécessaire de s'inscrire et d'obtenir un token pour l'API que vous pourrez ensuite modifier dans le script.
 
 ### Exécution
 
@@ -33,12 +40,45 @@ Il suffit alors d'utiliser l'outil jusText pour lire le contenu des fichiers HTM
 Nous avons décider de séparer les deux étapes pour éviter d'avoir a récupérer les fichiers html plusieurs fois. 
 Cela permet de gagner en efficacité si des problèmes surviennent sur la partie jusText.
 
-# Dependances
+Pour réaliser le scrapping utiliser la commande :
 
-pip install BeautifulSoup
-pip install requests
+```shell script
+python scrapping.py
+```
 
-# Guide d'utilisation
+On cherche ensuite à extraire des entités depuis les textes retournés par JustText, on utilise l'API de NERO 
+(https://allgo.inria.fr/app/nero) et on met en forme un fichier JSON qui nous servira ensuite pour former la 
+hiérarchie des concepts.
 
-Prenez le temps de vous inscrire sur https://allgo.inria.fr/app/nero pour avoir un TOKEN que vous devez changer sur app.py
+Pour réaliser l'extraction des entités utiliser la commande :
+```shell script
+python app.py
+```
 
+## 2. Hierarchie des concepts
+
+À partir du fichier JSON généré, l'utilisation de LatViz (https://latviz.loria.fr/) permet de générer la hiérarchie des concepts (Ganter) et d'exporter cette dernière en tant que graphe au format JSON.
+
+## 3. Manipulation
+
+### Dépendances
+```shell script
+pip install pyvis
+```
+```shell script
+pip install networkx
+```
+
+```shell script
+pip install webbrowser
+```
+
+```shell script
+pip install bs4
+```
+
+### Exécution
+
+```shell script
+python visualization.py [input_filename]
+```
