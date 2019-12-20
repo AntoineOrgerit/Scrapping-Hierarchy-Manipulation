@@ -30,7 +30,7 @@ function initializeUI() {
 function addButtons() {
 	addButtonToMenu("Redraw", false, fit);
 	addButtonToMenu("Highlight superconcepts", true, highlightSuperconcepts);
-	addButtonToMenu("Highligh subconcepts", true, highlightSubConcepts)
+	addButtonToMenu("Highlight subconcepts", true, highlightSubConcepts)
 }
 
 /**
