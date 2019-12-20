@@ -62,9 +62,10 @@ python app.py
 
 ## 3. Manipulation
 
+### Dépendances
+
 Les dépendances suivantes sont nécessaires à la génération de la vue de manipulation de la hiérarchie des concepts :
 
-### Dépendances
 ```shell script
 pip install pyvis
 ```
